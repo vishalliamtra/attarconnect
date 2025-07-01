@@ -9,6 +9,7 @@ import B2BPage from './pages/B2BPage';
 import KnowledgeHubPage from './pages/KnowledgeHubPage';
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
+import ProductDetail from './pages/ProductDetail';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path="/knowledge" element={<KnowledgeHubPage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/product/:id" element={<ProductDetail />} />
         </Routes>
         <Footer />
       </div>

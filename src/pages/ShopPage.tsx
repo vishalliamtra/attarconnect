@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Filter, Grid, List, Star, Heart, ShoppingCart } from 'lucide-react';
 
 const ShopPage: React.FC = () => {
@@ -219,7 +220,11 @@ const ShopPage: React.FC = () => {
             {viewMode === 'grid' ? (
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {products.map((product) => (
-                  <div key={product.id} className="bg-white rounded-lg overflow-hidden shadow-sm border border-gray-200 hover:shadow-lg transition-shadow duration-300 group">
+                  <Link
+                    to={`/product/${product.id}`}
+                    key={product.id}
+                    className="bg-white rounded-lg overflow-hidden shadow-sm border border-gray-200 hover:shadow-lg transition-shadow duration-300 group"
+                  >
                     <div className="relative overflow-hidden">
                       <img 
                         src={product.image} 
@@ -227,7 +232,7 @@ const ShopPage: React.FC = () => {
                         className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
                       />
                       <div className="absolute top-3 right-3 flex flex-col space-y-2">
-                        <button className="p-2 bg-white rounded-full shadow-md hover:bg-gray-50 transition-colors">
+                        <button className="p-2 bg-white rounded-full shadow-md hover:bg-gray-50 transition-colors" onClick={e => e.preventDefault()}>
                           <Heart className="w-4 h-4 text-gray-600" />
                         </button>
                         {product.originalPrice > product.price && (
@@ -260,25 +265,30 @@ const ShopPage: React.FC = () => {
                             <span className="text-sm text-gray-500 line-through">₹{product.originalPrice.toLocaleString()}</span>
                           )}
                         </div>
-                        <button 
+                        <button
                           disabled={!product.inStock}
                           className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-                            product.inStock 
-                              ? 'bg-amber-600 text-white hover:bg-amber-700' 
+                            product.inStock
+                              ? 'bg-amber-600 text-white hover:bg-amber-700'
                               : 'bg-gray-300 text-gray-500 cursor-not-allowed'
                           }`}
+                          onClick={e => e.preventDefault()}
                         >
                           <ShoppingCart className="w-4 h-4" />
                         </button>
                       </div>
                     </div>
-                  </div>
+                  </Link>
                 ))}
               </div>
             ) : (
               <div className="space-y-4">
                 {products.map((product) => (
-                  <div key={product.id} className="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-lg transition-shadow duration-300">
+                  <Link
+                    to={`/product/${product.id}`}
+                    key={product.id}
+                    className="block bg-white rounded-lg border border-gray-200 p-6 hover:shadow-lg transition-shadow duration-300"
+                  >
                     <div className="flex flex-col md:flex-row">
                       <img 
                         src={product.image} 
@@ -314,16 +324,20 @@ const ShopPage: React.FC = () => {
                               )}
                             </div>
                             <div className="flex space-x-2">
-                              <button className="p-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors">
+                              <button
+                                className="p-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
+                                onClick={e => e.preventDefault()}
+                              >
                                 <Heart className="w-5 h-5 text-gray-600" />
                               </button>
-                              <button 
+                              <button
                                 disabled={!product.inStock}
                                 className={`px-6 py-2 rounded-lg text-sm font-medium transition-colors flex items-center ${
-                                  product.inStock 
-                                    ? 'bg-amber-600 text-white hover:bg-amber-700' 
+                                  product.inStock
+                                    ? 'bg-amber-600 text-white hover:bg-amber-700'
                                     : 'bg-gray-300 text-gray-500 cursor-not-allowed'
                                 }`}
+                                onClick={e => e.preventDefault()}
                               >
                                 <ShoppingCart className="w-4 h-4 mr-2" />
                                 {product.inStock ? 'Add to Cart' : 'Out of Stock'}
@@ -333,7 +347,7 @@ const ShopPage: React.FC = () => {
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </Link>
                 ))}
               </div>
             )}
