@@ -5,43 +5,43 @@ import { ArrowRight, Star, Shield, Truck, Users, Award, Globe, Heart, Droplets, 
 const HomePage: React.FC = () => {
   const categories = [
     { 
-      name: 'Attar45s (Ittar)', 
-      image: 'https://images.pexels.com/photos/4465124/pexels-photo-4465124.jpeg?auto=compress&cs=tinysrgb&w=400', 
+      name: 'Attars (Ittar)', 
+      image: 'https://images.unsplash.com/photo-1617042375873-0a2604f3e83a?auto=compress&cs=tinysrgb&w=400', 
       products: '120+',
       icon: Droplets,
       description: 'Traditional alcohol-free perfumes'
     },
     { 
       name: 'Essential Oils', 
-      image: 'https://images.pexels.com/photos/4041405/pexels-photo-4041405.jpeg?auto=compress&cs=tinysrgb&w=400', 
+      image: 'https://images.unsplash.com/photo-1601233748856-bfeb132fda5e?auto=compress&cs=tinysrgb&w=400', 
       products: '85+',
       icon: Leaf,
       description: 'Pure botanical extracts'
     },
     { 
       name: 'Perfumed Soaps', 
-      image: 'https://images.pexels.com/photos/4465831/pexels-photo-4465831.jpeg?auto=compress&cs=tinysrgb&w=400', 
+      image: 'https://images.unsplash.com/photo-1585386959984-a415522f8c97?auto=compress&cs=tinysrgb&w=400', 
       products: '45+',
       icon: Flower,
       description: 'Handcrafted aromatic soaps'
     },
     { 
       name: 'Incense & Dhoop', 
-      image: 'https://images.pexels.com/photos/6303635/pexels-photo-6303635.jpeg?auto=compress&cs=tinysrgb&w=400', 
+      image: 'https://images.unsplash.com/photo-1615461066841-58f5036cf5c6?auto=compress&cs=tinysrgb&w=400', 
       products: '60+',
       icon: Flame,
       description: 'Sacred temple fragrances'
     },
     { 
       name: 'Gift Sets', 
-      image: 'https://images.pexels.com/photos/4465124/pexels-photo-4465124.jpeg?auto=compress&cs=tinysrgb&w=400', 
+      image: 'https://images.unsplash.com/photo-1603052875190-9c83c3b5f6f5?auto=compress&cs=tinysrgb&w=400', 
       products: '25+',
       icon: Crown,
       description: 'Curated fragrance collections'
     },
     { 
       name: 'Bulk/Wholesale', 
-      image: 'https://images.pexels.com/photos/4465124/pexels-photo-4465124.jpeg?auto=compress&cs=tinysrgb&w=400', 
+      image: 'https://images.unsplash.com/photo-1594312915251-48c2d6c7d8be?auto=compress&cs=tinysrgb&w=400', 
       products: 'Custom',
       icon: Users,
       description: 'Business & export orders'
