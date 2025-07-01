@@ -1,41 +1,69 @@
-
-
 import React from 'react';
+import { useParams } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import { Navigation } from 'swiper/modules';
 
-const product = {
-  name: "Classic Rose Attar",
-  images: [
-    "/images/product1.jpg",
-    "/images/product2.jpg",
-    "/images/product3.jpg",
-  ],
-  price: "₹450",
-  attributes: {
-    Volume: "6ml",
-    Packaging: "Glass Bottle",
-    Type: "Roll-On",
+const products = [
+  {
+    id: 1,
+    name: 'Pure Rose Attar',
+    artisan: 'Mohammad Rashid',
+    price: 2499,
+    originalPrice: 2999,
+    image: 'https://images.pexels.com/photos/4465124/pexels-photo-4465124.jpeg?auto=compress&cs=tinysrgb&w=400',
+    images: [
+      'https://images.pexels.com/photos/4465124/pexels-photo-4465124.jpeg?auto=compress&cs=tinysrgb&w=400'
+    ],
+    rating: 4.8,
+    reviews: 127,
+    attributes: {
+      Volume: "6ml",
+      Packaging: "Glass Bottle",
+      Type: "Roll-On",
+    },
+    specifications: {
+      Ingredients: "Rose, Sandalwood",
+      Origin: "Kannauj, India",
+      ShelfLife: "24 Months",
+    },
+    similarProducts: [],
   },
-  specifications: {
-    Ingredients: "Natural Oils, Rose Extract",
-    Origin: "Kannauj, India",
-    ShelfLife: "24 Months",
-  },
-  reviews: [
-    { name: "Aarav", comment: "Wonderful fragrance, long-lasting!", rating: 5 },
-    { name: "Meera", comment: "Packaging is so elegant.", rating: 4 },
-  ],
-  similarProducts: [
-    { name: "Jasmine Bliss", image: "/images/similar1.jpg", price: "₹400" },
-    { name: "Oudh Supreme", image: "/images/similar2.jpg", price: "₹600" },
-    { name: "Sandalwood Spirit", image: "/images/similar3.jpg", price: "₹500" },
-  ]
-};
+  {
+    id: 2,
+    name: 'Mysore Sandalwood Oil',
+    artisan: 'Suresh Kumar',
+    price: 3799,
+    originalPrice: 4299,
+    image: 'https://images.pexels.com/photos/4041405/pexels-photo-4041405.jpeg?auto=compress&cs=tinysrgb&w=400',
+    images: [
+      'https://images.pexels.com/photos/4041405/pexels-photo-4041405.jpeg?auto=compress&cs=tinysrgb&w=400'
+    ],
+    rating: 4.9,
+    reviews: 89,
+    attributes: {
+      Volume: "10ml",
+      Packaging: "Aluminum Bottle",
+      Type: "Oil",
+    },
+    specifications: {
+      Ingredients: "Sandalwood",
+      Origin: "Mysore, India",
+      ShelfLife: "36 Months",
+    },
+    similarProducts: [],
+  }
+];
 
 const ProductDetail = () => {
+  const { id } = useParams();
+  const product = products.find(p => p.id === Number(id));
+
+  if (!product) {
+    return <div className="p-10 text-center text-red-600 text-xl">Product not found.</div>;
+  }
+
   return (
     <div className="p-6 max-w-7xl mx-auto">
       <div className="grid md:grid-cols-2 gap-6">
@@ -51,7 +79,7 @@ const ProductDetail = () => {
 
         <div>
           <h1 className="text-3xl font-semibold">{product.name}</h1>
-          <p className="text-xl text-green-600 my-2">{product.price}</p>
+          <p className="text-xl text-green-600 my-2">₹{product.price.toLocaleString()}</p>
           <div className="my-4">
             <h3 className="font-semibold mb-2">Attributes</h3>
             <ul>
@@ -73,24 +101,13 @@ const ProductDetail = () => {
 
       <div className="mt-10">
         <h2 className="text-2xl font-semibold mb-4">Customer Reviews</h2>
-        {product.reviews.map((review, i) => (
-          <div key={i} className="border-b py-2">
-            <p><strong>{review.name}</strong> - {Array(review.rating).fill("⭐").join("")}</p>
-            <p>{review.comment}</p>
-          </div>
-        ))}
-      </div>
-
-      <div className="mt-10">
-        <h2 className="text-2xl font-semibold mb-4">Similar Products</h2>
-        <div className="flex gap-4 overflow-x-auto">
-          {product.similarProducts.map((sp, i) => (
-            <div key={i} className="min-w-[200px] border rounded p-3">
-              <img src={sp.image} alt={sp.name} className="h-40 w-full object-cover mb-2" />
-              <h3 className="font-medium">{sp.name}</h3>
-              <p className="text-green-600">{sp.price}</p>
-            </div>
-          ))}
+        <div className="border-b py-2">
+          <p><strong>Aarav</strong> - ⭐⭐⭐⭐⭐</p>
+          <p>Wonderful fragrance, long-lasting!</p>
+        </div>
+        <div className="border-b py-2">
+          <p><strong>Meera</strong> - ⭐⭐⭐⭐</p>
+          <p>Packaging is so elegant.</p>
         </div>
       </div>
     </div>
