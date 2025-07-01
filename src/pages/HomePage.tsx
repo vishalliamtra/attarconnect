@@ -6,42 +6,42 @@ const HomePage: React.FC = () => {
   const categories = [
     {
       name: 'Attars (Ittar)',
-      image: 'https://images.unsplash.com/photo-1608224881400-59b1839b8f68?auto=format&fit=crop&w=800&q=80',
+      image: 'https://images.pexels.com/photos/5946689/pexels-photo-5946689.jpeg?auto=compress&cs=tinysrgb&w=800',
       products: '120+',
       icon: Droplets,
       description: 'Traditional alcohol-free perfumes'
     },
     {
       name: 'Essential Oils',
-      image: 'https://images.unsplash.com/photo-1623251922086-671c18f1e2e5?auto=format&fit=crop&w=800&q=80',
+      image: 'https://images.pexels.com/photos/932577/pexels-photo-932577.jpeg?auto=compress&cs=tinysrgb&w=800',
       products: '85+',
       icon: Leaf,
       description: 'Pure botanical extracts'
     },
     {
       name: 'Perfumed Soaps',
-      image: 'https://images.unsplash.com/photo-1621905252781-6d62a8933ff6?auto=format&fit=crop&w=800&q=80',
+      image: 'https://images.pexels.com/photos/6621469/pexels-photo-6621469.jpeg?auto=compress&cs=tinysrgb&w=800',
       products: '45+',
       icon: Flower,
       description: 'Handcrafted aromatic soaps'
     },
     {
       name: 'Incense & Dhoop',
-      image: 'https://images.unsplash.com/photo-1594644628914-b7ddac5bcbdc?auto=format&fit=crop&w=800&q=80',
+      image: 'https://images.pexels.com/photos/6969927/pexels-photo-6969927.jpeg?auto=compress&cs=tinysrgb&w=800',
       products: '60+',
       icon: Flame,
       description: 'Sacred temple fragrances'
     },
     {
       name: 'Gift Sets',
-      image: 'https://images.unsplash.com/photo-1607082349250-667f13288825?auto=format&fit=crop&w=800&q=80',
+      image: 'https://images.pexels.com/photos/192364/pexels-photo-192364.jpeg?auto=compress&cs=tinysrgb&w=800',
       products: '25+',
       icon: Crown,
       description: 'Curated fragrance collections'
     },
     {
       name: 'Bulk/Wholesale',
-      image: 'https://images.unsplash.com/photo-1577939226730-1bc3cf13cb66?auto=format&fit=crop&w=800&q=80',
+      image: 'https://images.pexels.com/photos/4483770/pexels-photo-4483770.jpeg?auto=compress&cs=tinysrgb&w=800',
       products: 'Custom',
       icon: Users,
       description: 'Business & export orders'
