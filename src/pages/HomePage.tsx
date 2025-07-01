@@ -5,7 +5,7 @@ import { ArrowRight, Star, Shield, Truck, Users, Award, Globe, Heart, Droplets, 
 const HomePage: React.FC = () => {
   const categories = [
     { 
-      name: 'Attars (Ittar)', 
+      name: 'Attar45s (Ittar)', 
       image: 'https://images.pexels.com/photos/4465124/pexels-photo-4465124.jpeg?auto=compress&cs=tinysrgb&w=400', 
       products: '120+',
       icon: Droplets,
