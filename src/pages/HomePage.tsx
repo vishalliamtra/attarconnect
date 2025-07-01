@@ -4,44 +4,44 @@ import { ArrowRight, Star, Shield, Truck, Users, Award, Globe, Heart, Droplets, 
 
 const HomePage: React.FC = () => {
   const categories = [
-    { 
-      name: 'Attars (Ittar)', 
-      image: 'https://images.unsplash.com/photo-1617042375873-0a2604f3e83a?auto=compress&cs=tinysrgb&w=400', 
+    {
+      name: 'Attars (Ittar)',
+      image: 'https://images.unsplash.com/photo-1608224881400-59b1839b8f68?auto=format&fit=crop&w=800&q=80',
       products: '120+',
       icon: Droplets,
       description: 'Traditional alcohol-free perfumes'
     },
-    { 
-      name: 'Essential Oils', 
-      image: 'https://images.unsplash.com/photo-1601233748856-bfeb132fda5e?auto=compress&cs=tinysrgb&w=400', 
+    {
+      name: 'Essential Oils',
+      image: 'https://images.unsplash.com/photo-1623251922086-671c18f1e2e5?auto=format&fit=crop&w=800&q=80',
       products: '85+',
       icon: Leaf,
       description: 'Pure botanical extracts'
     },
-    { 
-      name: 'Perfumed Soaps', 
-      image: 'https://images.unsplash.com/photo-1585386959984-a415522f8c97?auto=compress&cs=tinysrgb&w=400', 
+    {
+      name: 'Perfumed Soaps',
+      image: 'https://images.unsplash.com/photo-1621905252781-6d62a8933ff6?auto=format&fit=crop&w=800&q=80',
       products: '45+',
       icon: Flower,
       description: 'Handcrafted aromatic soaps'
     },
-    { 
-      name: 'Incense & Dhoop', 
-      image: 'https://images.unsplash.com/photo-1615461066841-58f5036cf5c6?auto=compress&cs=tinysrgb&w=400', 
+    {
+      name: 'Incense & Dhoop',
+      image: 'https://images.unsplash.com/photo-1594644628914-b7ddac5bcbdc?auto=format&fit=crop&w=800&q=80',
       products: '60+',
       icon: Flame,
       description: 'Sacred temple fragrances'
     },
-    { 
-      name: 'Gift Sets', 
-      image: 'https://images.unsplash.com/photo-1603052875190-9c83c3b5f6f5?auto=compress&cs=tinysrgb&w=400', 
+    {
+      name: 'Gift Sets',
+      image: 'https://images.unsplash.com/photo-1607082349250-667f13288825?auto=format&fit=crop&w=800&q=80',
       products: '25+',
       icon: Crown,
       description: 'Curated fragrance collections'
     },
-    { 
-      name: 'Bulk/Wholesale', 
-      image: 'https://images.unsplash.com/photo-1594312915251-48c2d6c7d8be?auto=compress&cs=tinysrgb&w=400', 
+    {
+      name: 'Bulk/Wholesale',
+      image: 'https://images.unsplash.com/photo-1577939226730-1bc3cf13cb66?auto=format&fit=crop&w=800&q=80',
       products: 'Custom',
       icon: Users,
       description: 'Business & export orders'
