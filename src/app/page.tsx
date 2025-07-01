@@ -1,6 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { ArrowRight, Star, Shield, Truck, Users, Award, Globe, Heart, Droplets, Flame, Flower, Leaf, Crown, Sparkles, Clock, MapPin, CheckCircle } from 'lucide-react';
+import Link from 'next/link';
+import { ArrowRight, Star, Shield, Truck, Users, Globe, Heart, Droplets, Flame, Flower, Leaf, Crown, Sparkles, Clock, MapPin, CheckCircle } from 'lucide-react';
 
 const HomePage: React.FC = () => {
   const categories = [
@@ -183,14 +183,14 @@ const HomePage: React.FC = () => {
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-fade-in-up">
                 <Link 
-                  to="/shop" 
+                  href="/shop" 
                   className="bg-gradient-to-r from-amber-600 to-saffron-600 text-white px-8 py-4 rounded-full font-semibold hover:from-amber-700 hover:to-saffron-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 flex items-center justify-center"
                 >
                   <Droplets className="w-5 h-5 mr-2" />
                   Explore Attars
                 </Link>
                 <Link 
-                  to="/artisans" 
+                  href="/artisans" 
                   className="bg-white text-amber-600 border-2 border-amber-600 px-8 py-4 rounded-full font-semibold hover:bg-amber-600 hover:text-white transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 flex items-center justify-center"
                 >
                   <Users className="w-5 h-5 mr-2" />
@@ -381,7 +381,7 @@ const HomePage: React.FC = () => {
                   </div>
                   
                   <Link 
-                    to="/artisans" 
+                    href="/artisans" 
                     className="inline-flex items-center text-amber-600 hover:text-amber-700 font-medium text-sm group-hover:translate-x-1 transition-all duration-300"
                   >
                     View Profile <ArrowRight className="w-4 h-4 ml-1" />
@@ -437,14 +437,14 @@ const HomePage: React.FC = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <Link 
-              to="/shop" 
+              href="/shop" 
               className="bg-white text-amber-600 px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-1 flex items-center justify-center"
             >
               <Droplets className="w-5 h-5 mr-2" />
               Start Shopping
             </Link>
             <Link 
-              to="/b2b" 
+              href="/b2b" 
               className="bg-transparent text-white border-2 border-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-amber-600 transition-all duration-300 flex items-center justify-center"
             >
               <Users className="w-5 h-5 mr-2" />

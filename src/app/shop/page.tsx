@@ -1,5 +1,6 @@
+"use client";
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { Filter, Grid, List, Star, Heart, ShoppingCart } from 'lucide-react';
 
 const ShopPage: React.FC = () => {
@@ -221,7 +222,7 @@ const ShopPage: React.FC = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {products.map((product) => (
                   <Link
-                    to={`/product/${product.id}`}
+                    href={`/product/${product.id}`}
                     key={product.id}
                     className="bg-white rounded-lg overflow-hidden shadow-sm border border-gray-200 hover:shadow-lg transition-shadow duration-300 group"
                   >
@@ -285,7 +286,7 @@ const ShopPage: React.FC = () => {
               <div className="space-y-4">
                 {products.map((product) => (
                   <Link
-                    to={`/product/${product.id}`}
+                    href={`/product/${product.id}`}
                     key={product.id}
                     className="block bg-white rounded-lg border border-gray-200 p-6 hover:shadow-lg transition-shadow duration-300"
                   >
