@@ -1,18 +1,18 @@
 "use client"
 
-import type React from "react"
-import { useState } from "react"
 import Link from "next/link"
 import { usePathname, useRouter } from "next/navigation"
 import { Menu, X, ShoppingCart, User, Search, Globe, Droplets } from "lucide-react"
 import { useAuth } from "@/contexts/AuthContext"
 import { useCart } from "@/contexts/CartContext"
+import { useEffect, useState } from "react"
 
 const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false)
   const pathname = usePathname()
   const router = useRouter()
+  const [mounted, setMounted] = useState(false)
 
   // Move the hook calls inside the component function
   const { user, logout, isHydrated: authHydrated } = useAuth()
@@ -50,6 +50,12 @@ const Navbar: React.FC = () => {
 
   // Don't show cart badge until hydrated to prevent hydration mismatch
   const showCartBadge = cartHydrated && totalItems > 0
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
 
   return (
     <nav className="bg-white shadow-lg border-b border-amber-100 sticky top-0 z-40">

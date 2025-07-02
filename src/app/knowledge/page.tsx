@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import { Clock, User, ArrowRight, BookOpen, Video, FileText } from 'lucide-react';
 
 const KnowledgeHubPage: React.FC = () => {
@@ -160,7 +161,11 @@ const KnowledgeHubPage: React.FC = () => {
           
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {featuredArticles.map((article) => (
-              <div key={article.id} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 group">
+              <Link
+                key={article.id}
+                href={`/blog/${article.id}`}
+                className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 group"
+              >
                 <div className="relative overflow-hidden">
                   <img 
                     src={article.image} 
@@ -186,11 +191,11 @@ const KnowledgeHubPage: React.FC = () => {
                       <span>{article.readTime}</span>
                     </div>
                   </div>
-                  <button className="flex items-center text-emerald-600 hover:text-emerald-700 font-medium">
+                  <div className="flex items-center text-emerald-600 hover:text-emerald-700 font-medium">
                     Read More <ArrowRight className="w-4 h-4 ml-1" />
-                  </button>
+                  </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
@@ -240,7 +245,11 @@ const KnowledgeHubPage: React.FC = () => {
 
               <div className="space-y-6">
                 {allArticles.map((article) => (
-                  <div key={article.id} className="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-lg transition-shadow duration-300">
+                  <Link
+                    key={article.id}
+                    href={`/blog/${article.id}`}
+                    className="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-lg transition-shadow duration-300 block"
+                  >
                     <div className="flex items-start justify-between">
                       <div className="flex-1">
                         <div className="flex items-center space-x-3 mb-2">
@@ -253,7 +262,7 @@ const KnowledgeHubPage: React.FC = () => {
                           </span>
                         </div>
                         
-                        <h3 className="text-xl font-bold text-gray-900 mb-2 hover:text-emerald-600 cursor-pointer transition-colors">
+                        <h3 className="text-xl font-bold text-gray-900 mb-2 hover:text-emerald-600 transition-colors">
                           {article.title}
                         </h3>
                         
@@ -276,11 +285,11 @@ const KnowledgeHubPage: React.FC = () => {
                         </div>
                       </div>
                       
-                      <button className="ml-6 flex items-center text-emerald-600 hover:text-emerald-700 font-medium">
+                      <div className="ml-6 flex items-center text-emerald-600 hover:text-emerald-700 font-medium">
                         Read <ArrowRight className="w-4 h-4 ml-1" />
-                      </button>
+                      </div>
                     </div>
-                  </div>
+                  </Link>
                 ))}
               </div>
 
