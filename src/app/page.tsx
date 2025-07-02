@@ -548,7 +548,7 @@ const HomePage: React.FC = () => {
               Start Shopping
             </Link>
             <Link 
-              href="/b2b" 
+              href="/signup" 
               className="bg-transparent text-white border-2 border-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-amber-600 transition-all duration-300 flex items-center justify-center"
             >
               <Users className="w-5 h-5 mr-2" />
