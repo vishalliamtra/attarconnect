@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import { MapPin, Star, Award, Clock, MessageCircle, Phone } from 'lucide-react';
 
 const ArtisansPage: React.FC = () => {
@@ -245,9 +246,12 @@ const ArtisansPage: React.FC = () => {
                         <MessageCircle className="w-4 h-4 mr-2" />
                         Message Artisan
                       </button>
-                      <button className="flex-1 border border-amber-600 text-amber-600 py-2 px-4 rounded-lg hover:bg-amber-50 transition-colors flex items-center justify-center">
-                        View Products
-                      </button>
+                      <Link
+                        href={`/artisans/${artisan.id}`}
+                        className="flex-1 border border-amber-600 text-amber-600 py-2 px-4 rounded-lg hover:bg-amber-50 transition-colors flex items-center justify-center"
+                      >
+                        View Profile
+                      </Link>
                       <button className="border border-gray-300 text-gray-600 py-2 px-3 rounded-lg hover:bg-gray-50 transition-colors">
                         <Phone className="w-4 h-4" />
                       </button>

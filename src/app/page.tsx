@@ -1,47 +1,48 @@
+"use client"
 import React from 'react';
 import Link from 'next/link';
-import { ArrowRight, Star, Shield, Truck, Users, Globe, Heart, Droplets, Flame, Flower, Leaf, Crown, Sparkles, Clock, MapPin, CheckCircle } from 'lucide-react';
+import { ArrowRight, Star, Shield, Truck, Users, Globe, Heart, Droplets, Flame, Flower, Leaf, Crown, Sparkles, Clock, MapPin, CheckCircle, Brain, TrendingUp, Beaker, Bell, MessageCircle, BarChart3 } from 'lucide-react';
 
 const HomePage: React.FC = () => {
   const categories = [
-    {
-      name: 'Attars (Ittar)',
-      image: 'https://images.pexels.com/photos/5946689/pexels-photo-5946689.jpeg?auto=compress&cs=tinysrgb&w=800',
+    { 
+      name: 'Attars (Ittar)', 
+      image: 'https://images.pexels.com/photos/4465124/pexels-photo-4465124.jpeg?auto=compress&cs=tinysrgb&w=400', 
       products: '120+',
       icon: Droplets,
       description: 'Traditional alcohol-free perfumes'
     },
-    {
-      name: 'Essential Oils',
-      image: 'https://images.pexels.com/photos/932577/pexels-photo-932577.jpeg?auto=compress&cs=tinysrgb&w=800',
+    { 
+      name: 'Essential Oils', 
+      image: 'https://images.pexels.com/photos/4041405/pexels-photo-4041405.jpeg?auto=compress&cs=tinysrgb&w=400', 
       products: '85+',
       icon: Leaf,
       description: 'Pure botanical extracts'
     },
-    {
-      name: 'Perfumed Soaps',
-      image: 'https://images.pexels.com/photos/6621469/pexels-photo-6621469.jpeg?auto=compress&cs=tinysrgb&w=800',
+    { 
+      name: 'Perfumed Soaps', 
+      image: 'https://images.pexels.com/photos/4465831/pexels-photo-4465831.jpeg?auto=compress&cs=tinysrgb&w=400', 
       products: '45+',
       icon: Flower,
       description: 'Handcrafted aromatic soaps'
     },
-    {
-      name: 'Incense & Dhoop',
-      image: 'https://images.pexels.com/photos/6969927/pexels-photo-6969927.jpeg?auto=compress&cs=tinysrgb&w=800',
+    { 
+      name: 'Incense & Dhoop', 
+      image: 'https://images.pexels.com/photos/6303635/pexels-photo-6303635.jpeg?auto=compress&cs=tinysrgb&w=400', 
       products: '60+',
       icon: Flame,
       description: 'Sacred temple fragrances'
     },
-    {
-      name: 'Gift Sets',
-      image: 'https://images.pexels.com/photos/192364/pexels-photo-192364.jpeg?auto=compress&cs=tinysrgb&w=800',
+    { 
+      name: 'Gift Sets', 
+      image: 'https://images.pexels.com/photos/4465124/pexels-photo-4465124.jpeg?auto=compress&cs=tinysrgb&w=400', 
       products: '25+',
       icon: Crown,
       description: 'Curated fragrance collections'
     },
-    {
-      name: 'Bulk/Wholesale',
-      image: 'https://images.pexels.com/photos/4483770/pexels-photo-4483770.jpeg?auto=compress&cs=tinysrgb&w=800',
+    { 
+      name: 'Bulk/Wholesale', 
+      image: 'https://images.pexels.com/photos/4465124/pexels-photo-4465124.jpeg?auto=compress&cs=tinysrgb&w=400', 
       products: 'Custom',
       icon: Users,
       description: 'Business & export orders'
@@ -117,6 +118,45 @@ const HomePage: React.FC = () => {
     { number: '150+', label: 'Master Artisans', icon: Users },
     { number: '45', label: 'Countries Served', icon: Globe },
     { number: '500+', label: 'Authentic Products', icon: Sparkles }
+  ];
+
+  const aiFeatures = [
+    {
+      icon: TrendingUp,
+      title: 'Live Market Insights',
+      description: 'Discover what types of attars are trending globally, including demand from regions like Dubai, Europe, and India.',
+      emoji: '📈'
+    },
+    {
+      icon: Beaker,
+      title: 'Product Creation Suggestions',
+      description: 'Learn new methods and ingredient blends to craft unique, high-quality attars using modern distillation and natural processes.',
+      emoji: '🧪'
+    },
+    {
+      icon: Shield,
+      title: 'Quality Management Tips',
+      description: 'Maintain consistency and purity in every batch with AI-led best practices.',
+      emoji: '🛠️'
+    },
+    {
+      icon: Bell,
+      title: 'Smart Stock Alerts',
+      description: 'Get notified when your product inventory is running low on the platform so you never miss a sale.',
+      emoji: '🔔'
+    },
+    {
+      icon: BarChart3,
+      title: 'Order Prediction',
+      description: 'Based on past trends, the AI predicts upcoming demand to help you plan production efficiently.',
+      emoji: '🔮'
+    },
+    {
+      icon: MessageCircle,
+      title: 'Real-time Chat Assistance',
+      description: 'Artisans can directly chat with the AI to ask questions, get feedback, or understand how to improve their offerings.',
+      emoji: '💬'
+    }
   ];
 
   const testimonials = [
@@ -254,6 +294,70 @@ const HomePage: React.FC = () => {
                 <div className="text-lg text-amber-100">{stat.label}</div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* AI-Powered Business Partner Section */}
+      <section className="py-20 bg-gradient-to-br from-amber-50 to-saffron-50 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/5 to-purple-600/5"></div>
+        
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <div className="flex items-center justify-center mb-6">
+              <div className="w-16 h-16 bg-gradient-to-br from-amber-400 to-saffron-500 rounded-full flex items-center justify-center shadow-lg">
+                <Brain className="w-8 h-8 text-white" />
+              </div>
+            </div>
+            
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 font-serif">
+              Your Smart Business
+              <span className="text-amber-600 block">Partner</span>
+            </h2>
+            
+            <p className="text-xl md:text-2xl text-gray-700 mb-8 max-w-4xl mx-auto leading-relaxed">
+              This platform is more than just a marketplace — it's your smart business partner.
+            </p>
+            
+            <p className="text-lg text-gray-600 mb-12 max-w-3xl mx-auto">
+              Our AI-powered system helps Kannauj's artisans thrive by offering:
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+            {aiFeatures.map((feature, index) => (
+              <div key={index} className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-blue-100">
+                <div className="flex items-center mb-4">
+                  <div className="w-12 h-12 bg-gradient-to-br from-blue-100 to-purple-100 rounded-lg flex items-center justify-center mr-4">
+                    <span className="text-2xl">{feature.emoji}</span>
+                  </div>
+                  <feature.icon className="w-6 h-6 text-blue-600" />
+                </div>
+                
+                <h3 className="text-xl font-semibold text-gray-900 mb-3 font-serif">{feature.title}</h3>
+                <p className="text-gray-600 leading-relaxed">{feature.description}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center mb-12">
+            <div className="flex items-center justify-center mb-6">
+              <CheckCircle className="w-6 h-6 text-green-500 mr-3" />
+              <p className="text-lg font-medium text-gray-900">
+                With these tools, your perfume business becomes faster, smarter, and more connected to customers around the world.
+              </p>
+            </div>
+          </div>
+
+          <div className="flex flex-col sm:flex-row gap-6 justify-center">
+            <button className="bg-gradient-to-r from-amber-600 to-saffron-600 text-white px-8 py-4 rounded-full font-semibold hover:from-amber-700 hover:to-saffron-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 flex items-center justify-center">
+              <Brain className="w-5 h-5 mr-2" />
+              देखें AI कैसे काम करता है
+            </button>
+            <button className="bg-white text-amber-600 border-2 border-amber-600 px-8 py-4 rounded-full font-semibold hover:bg-amber-600 hover:text-white transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 flex items-center justify-center">
+              <MessageCircle className="w-5 h-5 mr-2" />
+              बात करें AI साथी से
+            </button>
           </div>
         </div>
       </section>
