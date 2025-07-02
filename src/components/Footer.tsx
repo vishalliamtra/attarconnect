@@ -1,3 +1,4 @@
+"use client"
 import type React from "react"
 import Link from "next/link"
 import { Facebook, Instagram, Twitter, Youtube, Mail, Phone, MapPin, Droplets } from "lucide-react"
@@ -141,7 +142,7 @@ const Footer: React.FC = () => {
           <div className="flex flex-col sm:flex-row justify-between items-center">
             <p className="text-gray-400 text-sm">© 2024 AttarConnect. All rights reserved.</p>
             <div className="flex space-x-6 mt-2 sm:mt-0">
-              <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">
+              <a href="/privacy" className="text-gray-400 hover:text-white text-sm transition-colors">
                 Privacy Policy
               </a>
               <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">
