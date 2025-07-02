@@ -21,7 +21,7 @@ export default function LoginPage() {
     clearError()
 
     try {
-      await login(formData.email, formData.password, userType)
+      await login(formData.email, formData.password)
       router.push(userType === "artisan" ? "/artisan-dashboard" : "/dashboard")
     } catch (err) {
       // Error is handled by the context
