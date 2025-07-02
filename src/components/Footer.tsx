@@ -145,10 +145,10 @@ const Footer: React.FC = () => {
               <Link href="/privacy" className="text-gray-400 hover:text-white text-sm transition-colors">
                 Privacy Policy
               </Link>
-              <Link href="#" className="text-gray-400 hover:text-white text-sm transition-colors">
+              <Link href="/" className="text-gray-400 hover:text-white text-sm transition-colors">
                 Terms of Service
               </Link>
-              <Link href="#" className="text-gray-400 hover:text-white text-sm transition-colors">
+              <Link href="/" className="text-gray-400 hover:text-white text-sm transition-colors">
                 Shipping Info
               </Link>
             </div>
