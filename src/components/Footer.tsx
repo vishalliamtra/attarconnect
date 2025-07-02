@@ -7,7 +7,7 @@ const Footer: React.FC = () => {
   return (
     <footer className="bg-gray-900 text-white relative overflow-hidden">
       {/* Traditional Pattern Background */}
-      <div className="absolute inset-0 bg-traditional-pattern opacity-5"></div>
+      <div className="absolute bg-traditional-pattern opacity-5"></div>
 
       {/* Main Footer */}
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -142,15 +142,15 @@ const Footer: React.FC = () => {
           <div className="flex flex-col sm:flex-row justify-between items-center">
             <p className="text-gray-400 text-sm">© 2024 AttarConnect. All rights reserved.</p>
             <div className="flex space-x-6 mt-2 sm:mt-0">
-              <a href="/privacy" className="text-gray-400 hover:text-white text-sm transition-colors">
+              <Link href="/privacy" className="text-gray-400 hover:text-white text-sm transition-colors">
                 Privacy Policy
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">
+              </Link>
+              <Link href="#" className="text-gray-400 hover:text-white text-sm transition-colors">
                 Terms of Service
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">
+              </Link>
+              <Link href="#" className="text-gray-400 hover:text-white text-sm transition-colors">
                 Shipping Info
-              </a>
+              </Link>
             </div>
           </div>
         </div>
