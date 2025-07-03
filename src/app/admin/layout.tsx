@@ -1,7 +1,7 @@
 "use client"
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { 
   LayoutDashboard, 
   Users, 
@@ -20,10 +20,13 @@ import {
   User,
   LogOut
 } from 'lucide-react';
+import { AdminAuthProvider, useAdminAuth } from '@/contexts/AdminAuthContext';
 
-const AdminLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+const AdminLayoutContent: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const pathname = usePathname();
+  const router = useRouter();
+  const { user, logout, isLoading, isAuthenticated } = useAdminAuth();
 
   const navigation = [
     { name: 'Dashboard', href: '/admin', icon: LayoutDashboard },
@@ -44,6 +47,39 @@ const AdminLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     }
     return pathname.startsWith(path);
   };
+
+  const handleLogout = () => {
+    logout();
+  };
+
+  // Show loading spinner while checking authentication
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-amber-600 mx-auto mb-4"></div>
+          <p className="text-gray-600">Loading admin panel...</p>
+        </div>
+      </div>
+    );
+  }
+
+  // If not authenticated and not on login page, redirect will be handled by middleware
+  if (!isAuthenticated && pathname !== '/admin/login') {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-amber-600 mx-auto mb-4"></div>
+          <p className="text-gray-600">Redirecting to login...</p>
+        </div>
+      </div>
+    );
+  }
+
+  // If on login page, don't show the admin layout
+  if (pathname === '/admin/login') {
+    return <>{children}</>;
+  }
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -146,10 +182,14 @@ const AdminLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                   className="w-8 h-8 rounded-full object-cover"
                 />
                 <div className="hidden sm:block">
-                  <p className="text-sm font-medium text-gray-900">Admin User</p>
-                  <p className="text-xs text-gray-500">Super Admin</p>
+                  <p className="text-sm font-medium text-gray-900">{user?.name}</p>
+                  <p className="text-xs text-gray-500 capitalize">{user?.role?.replace('_', ' ')}</p>
                 </div>
-                <button className="p-1 text-gray-400 hover:text-gray-600">
+                <button 
+                  onClick={handleLogout}
+                  className="p-1 text-gray-400 hover:text-gray-600"
+                  title="Logout"
+                >
                   <LogOut className="w-4 h-4" />
                 </button>
               </div>
@@ -163,6 +203,14 @@ const AdminLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
         </main>
       </div>
     </div>
+  );
+};
+
+const AdminLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  return (
+    <AdminAuthProvider>
+      <AdminLayoutContent>{children}</AdminLayoutContent>
+    </AdminAuthProvider>
   );
 };
 

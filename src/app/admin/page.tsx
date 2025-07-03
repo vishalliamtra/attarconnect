@@ -1,5 +1,6 @@
 "use client"
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import { 
   Users, 
   Package, 
@@ -12,8 +13,18 @@ import {
   MapPin,
   Clock
 } from 'lucide-react';
+import { useAdminAuth } from '@/contexts/AdminAuthContext';
 
 const AdminDashboard: React.FC = () => {
+  const { isAuthenticated, isLoading } = useAdminAuth();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (!isLoading && !isAuthenticated) {
+      router.push('/admin/login');
+    }
+  }, [isAuthenticated, isLoading, router]);
+
   const stats = [
     {
       name: 'Total Users',
@@ -135,6 +146,18 @@ const AdminDashboard: React.FC = () => {
       default: return 'border-gray-200 bg-gray-50 text-gray-700';
     }
   };
+
+  if (isLoading) {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-amber-600"></div>
+      </div>
+    );
+  }
+
+  if (!isAuthenticated) {
+    return null; // Will redirect via useEffect
+  }
 
   return (
     <div className="space-y-6">
