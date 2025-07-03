@@ -63,7 +63,6 @@ const AdminLayoutContent: React.FC<{ children: React.ReactNode }> = ({ children 
       </div>
     );
   }
-
   // If not authenticated and not on login page, redirect will be handled by middleware
   if (!isAuthenticated && pathname !== '/admin/login') {
     return (
@@ -119,7 +118,7 @@ const AdminLayoutContent: React.FC<{ children: React.ReactNode }> = ({ children 
       </div>
 
       {/* Desktop sidebar */}
-      <div className="hidden lg:fixed lg:inset-y-0 lg:flex lg:w-64 lg:flex-col">
+      <div className="hidden lg:fixed lg:inset-y-0 pt-16 lg:flex lg:w-64 lg:flex-col">
         <div className="flex flex-col flex-grow bg-white border-r border-gray-200">
           <div className="flex h-16 items-center px-4 border-b border-gray-200">
             <Link href="/admin" className="flex items-center space-x-2">

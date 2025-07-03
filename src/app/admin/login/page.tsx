@@ -1,72 +1,58 @@
 "use client"
-import React, { useState } from 'react';
-import { useRouter } from 'next/navigation';
-import Link from 'next/link';
-import { Eye, EyeOff, Shield, Lock, User, AlertCircle } from 'lucide-react';
+import type React from "react"
+import { useState, useEffect } from "react"
+import { useRouter, useSearchParams } from "next/navigation"
+import Link from "next/link"
+import { Eye, EyeOff, Shield, Lock, User, AlertCircle } from "lucide-react"
+import { useAdminAuth } from "@/contexts/AdminAuthContext"
 
 const AdminLoginPage: React.FC = () => {
   const [formData, setFormData] = useState({
-    email: '',
-    password: '',
-    rememberMe: false
-  });
-  const [showPassword, setShowPassword] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState('');
-  const router = useRouter();
+    email: "",
+    password: "",
+    rememberMe: false,
+  })
+  const [showPassword, setShowPassword] = useState(false)
+  const [error, setError] = useState("")
+  const router = useRouter()
+  const searchParams = useSearchParams()
+  const { login, isLoading, isAuthenticated } = useAdminAuth()
 
-  // Mock admin credentials
-  const adminCredentials = {
-    email: 'admin@attarconnect.com',
-    password: 'admin123'
-  };
+  // Get redirect URL from search params
+  const redirectUrl = searchParams.get("redirect") || "/admin"
+
+  // If already authenticated, redirect to intended page
+  useEffect(() => {
+    if (isAuthenticated) {
+      router.push(redirectUrl)
+    }
+  }, [isAuthenticated, router, redirectUrl])
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsLoading(true);
-    setError('');
+    e.preventDefault()
+    setError("")
 
     try {
-      // Simulate API delay
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      const result = await login(formData.email, formData.password, formData.rememberMe)
 
-      // Check credentials
-      if (formData.email === adminCredentials.email && formData.password === adminCredentials.password) {
-        // Create admin session
-        const adminSession = {
-          id: 'admin-1',
-          name: 'Admin User',
-          email: formData.email,
-          role: 'super_admin',
-          loginTime: new Date().toISOString(),
-          expiresAt: new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString() // 24 hours
-        };
-
-        // Store in localStorage and sessionStorage
-        localStorage.setItem('adminSession', JSON.stringify(adminSession));
-        if (formData.rememberMe) {
-          localStorage.setItem('adminRememberMe', 'true');
-        }
-
-        // Redirect to admin dashboard
-        router.push('/admin');
+      if (result.success) {
+        // Redirect will be handled by the useEffect above when isAuthenticated becomes true
+        router.push(redirectUrl)
       } else {
-        throw new Error('Invalid email or password');
+        setError(result.error || "Login failed")
       }
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Login failed');
-    } finally {
-      setIsLoading(false);
+      setError("An unexpected error occurred")
     }
-  };
+  }
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value, type, checked } = e.target;
+    const { name, value, type, checked } = e.target
     setFormData({
       ...formData,
-      [name]: type === 'checkbox' ? checked : value
-    });
-  };
+      [name]: type === "checkbox" ? checked : value,
+    })
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
@@ -126,7 +112,7 @@ const AdminLoginPage: React.FC = () => {
                 <input
                   id="password"
                   name="password"
-                  type={showPassword ? 'text' : 'password'}
+                  type={showPassword ? "text" : "password"}
                   autoComplete="current-password"
                   required
                   value={formData.password}
@@ -178,7 +164,7 @@ const AdminLoginPage: React.FC = () => {
                   Signing in...
                 </>
               ) : (
-                'Sign In'
+                "Sign In"
               )}
             </button>
           </form>
@@ -194,8 +180,12 @@ const AdminLoginPage: React.FC = () => {
         <div className="bg-blue-900/20 border border-blue-500/30 rounded-lg p-4 backdrop-blur-sm">
           <h3 className="text-sm font-medium text-blue-200 mb-2">Demo Admin Credentials</h3>
           <div className="text-xs text-blue-300 space-y-1">
-            <p><strong>Email:</strong> admin@attarconnect.com</p>
-            <p><strong>Password:</strong> admin123</p>
+            <p>
+              <strong>Email:</strong> admin@attarconnect.com
+            </p>
+            <p>
+              <strong>Password:</strong> admin123
+            </p>
           </div>
         </div>
 
@@ -205,7 +195,7 @@ const AdminLoginPage: React.FC = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default AdminLoginPage;
+export default AdminLoginPage
